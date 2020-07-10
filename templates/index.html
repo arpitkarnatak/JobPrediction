@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    
+    <!-- Bootstrap CSS -->
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<nav class="navbar navbar-inverse bg-warning font-weight-bold" style="color:yellow">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand text-white text-centre " href="https://github.com/arpitkarnatak">College Prediction 
+    </div>
+    <ul class="nav navbar-nav font color white">
+      <li class="active"><a href="#"></a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <h3></h3>
+  <p></p>
+</div>
+
+</body>
+</html>
+    
+</head>
+
+<body>
+
+    <div style="color:black">
+        <form action="{{ url_for('predict')}}" method="post">
+          <h3 style="font-family: 'Oswald', sans-serif !important">High School Subject</h3><select name="HSS" id="resea" required="required">
+                <option value="Yes">Commerce</option>
+                <option value="No">Science</option>
+                <option value="Maybe">Arts</option>
+            </select><br><br>
+          <h3 style="font-family: 'Oswald', sans-serif !important">High School Board</h3><select name="HSB" id="resea" required="required">
+                <option value="Yes">CBSE</option>
+                <option value="No">Others</option>
+            </select><br><br>
+            <h3 style="font-family: 'Oswald', sans-serif !important">High School Percentage</h3><input id="second" name="HSP" required="required">
+            <br><br>
+            
+            <h3 style="font-family: 'Oswald', sans-serif !important">Secondary School Board</h3><select name="SSB" id="resea" required="required">
+                <option value="Yes">CBSE</option>
+                <option value="No">Others</option>
+            </select><br><br>
+            <h3 style="font-family: 'Oswald', sans-serif !important">Secondary School Percentage</h3><input id="second" name="SSP" required="required">
+            <br><br>
+            
+            <h3 style="font-family: 'Oswald', sans-serif !important">Degree Subject</h3><select name="DSub" id="resea" required="required">
+                <option value="Yes">Science & Technology</option>
+                <option value="No">Commerce</option>
+            </select><br><br>
+            <h3 style="font-family: 'Oswald', sans-serif !important">Degree Percentage</h3><input id="second" name="DP" required="required" ><br><br>
+            <h3 style="font-family: 'Oswald', sans-serif !important">Work Experience</h3><select name="WE" id="resea" required="required">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br><br>
+            <h3 style="font-family: 'Oswald', sans-serif !important">Entrance Test Score</h3><input id="second" name="ETS" required="required"><br><br>
+            
+            <h3 style="font-family: 'Oswald', sans-serif !important">MBA Specialization</h3><select name="MBAS" id="resea" required="required">
+                <option value="Yes">Market&Finance</option>
+                <option value="No">Market&HR</option>
+            </select><br><br>
+            
+            <h3 style="font-family: 'Oswald', sans-serif !important">MBA Percentage</h3><input id="second" name="MBAP" required="required"><br><br>
+            <br><br><button style="font-family: 'Oswald', sans-serif !important" id="sub" type="submit ">Calculate Odds</button>
+            <br>
+            
+
+        </form>
+
+
+
+        <br><br><h3 style="font-family: 'Oswald', sans-serif !important">{{prediction_text}}</h3>
+    </div>
+
+
+
+
+    <style>
+        body {
+            background-color: white;
+            text-align: center;
+            padding: 0px;
+        }
+        
+        #research {
+            font-family: Helvetica;
+            font-size: 18px;
+            width: 100px;
+            height: 23px;
+            top: 23px;
+        }
+        
+        #box {
+            border-radius: 60px;
+            border-color: 45px;
+            border-style: solid;
+            text-align: center;
+            background-color: rgb(255, 131, 61);
+            font-size: medium;
+            position: absolute;
+            width: 700px;
+            bottom: 9%;
+            height: 850px;
+            right: 30%;
+            padding: 0px;
+            margin: 0px;
+            font-size: 14px;
+        }
+        #resea {
+          
+            font-family: 'Oswald', sans-serif !important;
+            width: 99px;
+            height: 43px;
+            text-align: center;
+            font-size: 18px;
+        }
+        
+        #resea:hover {
+            background-color: yellow;
+        }
+        
+        #resea {
+            width: 99px;
+            height: 43px;
+            text-align: center;
+            font-size: 18px;
+        }
+        
+        #resea:hover {
+            background-color: white;
+        }
+        
+        #sub {
+            width: 200px;
+            height: 43px;
+            text-align: center;
+            font-size: 18px;
+        }
+        
+        #sub:hover {
+            background-color: yellow;
+        }
+        
+        #first {
+          
+            font-family: 'Oswald', sans-serif !important;
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        #second {
+          
+            font-family: 'Oswald', sans-serif !important;
+            height: 25px;
+            font-size: 15px;
+            text-align: center;
+        }
+        
+        
+        
+    </style>
+</body>
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+</html>
